@@ -1,30 +1,50 @@
 import React, { useEffect } from 'react'
-import Sidebar from '../components/Sidebar'
+import Sidebar from '../components/Navbar'
 import ThreadList from '../components/ThreadList'
 import { useDispatch, useSelector } from 'react-redux'
-import { asyncReceiveThreads } from '../states/threads/action'
+import asyncPopulateUsersAndThreads from '../states/shared/action'
+import { asyncDownVoteThread, asyncNeturalizeVoteThread, asyncUpVoteThread } from '../states/threads/action'
 
 function HomePage() {
     const dispatch = useDispatch()
     const threads = useSelector(state => state.threads)
     const users = useSelector(state => state.users)
+    const authUser = useSelector(state => state.authUser)
 
     useEffect(() => {
-        dispatch(asyncReceiveThreads())
+        dispatch(asyncPopulateUsersAndThreads())
     }, [dispatch])
+
+    const onUpVoteThread = (id) => {
+        dispatch(asyncUpVoteThread(id));
+    };
+
+    const onDownVoteThread = (id) => {
+        dispatch(asyncDownVoteThread(id));
+    };
+
+    const onNeturalizeVoteThread = (id) => {
+        dispatch(asyncNeturalizeVoteThread(id));
+    };
 
     const threadList = threads.map((thread) => ({
         ...thread,
         threadOwner: users.find((user) => user.id === thread.ownerId),
+        authUser: authUser.id,
     }));
+
     return (
-        <div className="flex">
-            <Sidebar />
+        <>
             <div className="flex-1 p-8">
                 <h1 className="sm:text-3xl font-bold text-2xl">Forum Diskusi</h1>
-                <ThreadList threads={threadList} />
+                <ThreadList
+                    threads={threadList}
+                    upVote={onUpVoteThread}
+                    downVote={onDownVoteThread}
+                    neturalizeVote={onNeturalizeVoteThread}
+                />
             </div>
-        </div>
+        </>
     )
 }
 

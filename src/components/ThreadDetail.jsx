@@ -1,40 +1,78 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import CustomLink from './CustomLink'
+import postedAt from '../utils'
+import parse from 'html-react-parser'
+import VoteButton from './VoteButton'
+import PropTypes from 'prop-types';
+import { userShape } from './ThreadItem'
 
-function ThreadDetail() {
+function ThreadDetail({
+    id,
+    authUser,
+    title,
+    body,
+    owner,
+    createdAt,
+    upVotesBy,
+    downVotesBy,
+    upVoteThreadDetail,
+    downVoteThreadDetail,
+    neturalizeVoteThreadDetail,
+}) {
     return (
         <>
-            <div className='xl:w-1/2'>
-                <div>
-                    <CustomLink variant='withArrow' text={'Kembali'} to={'/'} />
-                    <div className='mt-4'>
-                        <h2 className="mb-4 text-2xl font-semibold">
-                            Judul Thread
-                        </h2>
-                        <p className="mb-4 text-gray-600">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget consectetur nunc nisl euismod nisl. Duis euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget consectetur nunc nisl euismod nisl.
-                        </p>
-                        <div className='flex space-x-10 text-gray-600'>
-                            <p>Created By:</p>
-                            <p>Created At:</p>
-                        </div>
-                        <div className='mt-2'>
-                            <div className="w-full">
-                                <div className="relative">
-                                    <label htmlFor="message" className="leading-7 text-md text-gray-600">Comment</label>
-                                    <textarea id="message" name="message" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
-                                </div>
-                                <div className="w-full">
-                                    <button className="flex text-white bg-indigo-500 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-600 rounded text-sm">Submit</button>
-                                </div>
+            <section className='xl:w-1/2'>
+                <CustomLink variant='withArrow' text={'Kembali'} to={'/'} />
+                <section className='p-2 rounded-sm shadow-md mt-2 mb-8'>
+                    <header>
+                        <div className='flex items-center text-gray-600'>
+                            <img
+                                src={owner.avatar}
+                                alt="avatar"
+                                className="avatar"
+                            />
+                            <div className='flex flex-col items-start'>
+                                <h1 className='font-semibold'>{owner.name}</h1>
+                                <p>{postedAt(createdAt)}</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </header>
+                    <main className='mt-4'>
+                        <h2 className="mb-4 sm:text-2xl">
+                            {title}
+                        </h2>
+                        <span className="mb-4 text-[14px] sm:text-base">
+                            {parse(body)}
+                        </span>
+                        <div className='flex pb-4 pt-4 items-center gap-2'>
+                            <VoteButton
+                                upVote={upVoteThreadDetail}
+                                downVote={downVoteThreadDetail}
+                                neturalizeVote={neturalizeVoteThreadDetail}
+                                upVotesBy={upVotesBy}
+                                downVotesBy={downVotesBy}
+                                authUser={authUser}
+                                id={id} />
+                        </div>
+                    </main>
+                </section>
+            </section>
         </>
     )
 }
+
+ThreadDetail.propTypes = {
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    owner: PropTypes.shape(userShape).isRequired,
+    createdAt: PropTypes.string.isRequired,
+    authUser: PropTypes.string.isRequired,
+    upVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
+    downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
+    upVoteThreadDetail: PropTypes.func.isRequired,
+    downVoteThreadDetail: PropTypes.func.isRequired,
+    neturalizeVoteThreadDetail: PropTypes.func.isRequired,
+};
 
 export default ThreadDetail
