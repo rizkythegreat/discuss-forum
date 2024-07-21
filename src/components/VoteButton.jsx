@@ -1,60 +1,63 @@
-import { ThumbsDown, ThumbsUp } from 'lucide-react';
-import React from 'react';
-import PropTypes from 'prop-types';
+import { ThumbsDown, ThumbsUp } from 'lucide-react'
+import PropTypes from 'prop-types'
 
-function VoteButton({
-    id,
-    upVote,
-    downVote,
-    neturalizeVote,
-    upVotesBy,
-    downVotesBy,
-    authUser
+function VoteButton ({
+  id,
+  upVote,
+  downVote,
+  neturalizeVote,
+  upVotesBy,
+  downVotesBy,
+  authUser
 }) {
-    const isUpVoted = upVotesBy.includes(authUser);
-    const isDownVoted = downVotesBy.includes(authUser);
+  const isUpVoted = upVotesBy.includes(authUser)
+  const isDownVoted = downVotesBy.includes(authUser)
 
-    const onUpVoteClick = (event) => {
-        event.stopPropagation();
-        upVote(id);
-    };
+  const onUpVoteClick = (event) => {
+    event.stopPropagation()
+    upVote(id)
+  }
 
-    const onDownVoteClick = (event) => {
-        event.stopPropagation();
-        downVote(id);
-    };
+  const onDownVoteClick = (event) => {
+    event.stopPropagation()
+    downVote(id)
+  }
 
-    const onNeutralizeVoteClick = (event) => {
-        event.stopPropagation();
-        neturalizeVote(id);
-    };
+  const onNeutralizeVoteClick = (event) => {
+    event.stopPropagation()
+    neturalizeVote(id)
+  }
 
-    return (
-        <div className='flex pb-2 border rounded-full p-2 pt-2 items-center gap-2'>
-            {isUpVoted ? (
-                <ThumbsUp className='cursor-pointer' onClick={onNeutralizeVoteClick} size={20} fill='#6366F1' strokeWidth={0} />
-            ) : (
-                <ThumbsUp className='cursor-pointer' onClick={onUpVoteClick} size={20} strokeWidth={1} />
-            )}
-            <span className='cursor-default'>{upVotesBy.length}</span>
-            {isDownVoted ? (
-                <ThumbsDown className='cursor-pointer' onClick={onNeutralizeVoteClick} size={20} fill='#6366F1' strokeWidth={0} />
-            ) : (
-                <ThumbsDown className='cursor-pointer' onClick={onDownVoteClick} size={20} strokeWidth={1} />
-            )}
-            <span className='cursor-default'>{downVotesBy.length}</span>
-        </div>
-    );
+  return (
+    <div className='flex pb-2 border rounded-full p-2 pt-2 items-center gap-2'>
+      {isUpVoted
+        ? (
+          <ThumbsUp className='cursor-pointer' onClick={onNeutralizeVoteClick} size={20} fill='#6366F1' strokeWidth={0} />
+          )
+        : (
+          <ThumbsUp className='cursor-pointer' onClick={onUpVoteClick} size={20} strokeWidth={1} />
+          )}
+      <span className='cursor-default'>{upVotesBy.length}</span>
+      {isDownVoted
+        ? (
+          <ThumbsDown className='cursor-pointer' onClick={onNeutralizeVoteClick} size={20} fill='#6366F1' strokeWidth={0} />
+          )
+        : (
+          <ThumbsDown className='cursor-pointer' onClick={onDownVoteClick} size={20} strokeWidth={1} />
+          )}
+      <span className='cursor-default'>{downVotesBy.length}</span>
+    </div>
+  )
 }
 
 VoteButton.propTypes = {
-    id: PropTypes.string.isRequired,
-    upVote: PropTypes.func.isRequired,
-    downVote: PropTypes.func.isRequired,
-    neturalizeVote: PropTypes.func.isRequired,
-    upVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
-    downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
-    authUser: PropTypes.string.isRequired,
-};
+  id: PropTypes.string.isRequired,
+  upVote: PropTypes.func.isRequired,
+  downVote: PropTypes.func.isRequired,
+  neturalizeVote: PropTypes.func.isRequired,
+  upVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
+  downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
+  authUser: PropTypes.string.isRequired
+}
 
-export default VoteButton;
+export default VoteButton

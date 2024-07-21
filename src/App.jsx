@@ -25,12 +25,12 @@ const registeredRouter = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path='/' element={<HomePage />} />
-      <Route path={`/thread/:threadId`} element={<DetailPage />} />
+      <Route path='/thread/:threadId' element={<DetailPage />} />
     </Route>
   )
 )
 
-function App() {
+function App () {
   const isPreload = useSelector((state) => state.isPreload)
   const authUser = useSelector((state) => state.authUser)
   const dispatch = useDispatch()
@@ -40,11 +40,11 @@ function App() {
   }, [dispatch])
 
   const onSignOut = () => {
-    dispatch(asyncUnsetAuthUser());
+    dispatch(asyncUnsetAuthUser())
   }
 
   if (isPreload) {
-    return null;
+    return null
   }
   if (authUser === null) {
     return (
