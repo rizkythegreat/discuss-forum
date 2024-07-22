@@ -17,7 +17,7 @@ function CommentItem ({
   authUser
 }) {
   return (
-    <div className='xl:w-1/2'>
+    <section className='xl:w-2/3'>
       <div className='card mt-8 border rounded-md shadow-md'>
         <header className='card-header'>
           <div className='flex items-center text-gray-600 mb-3'>
@@ -43,7 +43,7 @@ function CommentItem ({
           </div>
         </main>
       </div>
-    </div>
+    </section>
   )
 }
 

@@ -57,6 +57,10 @@ h2 {
   @apply px-2 py-1 bg-indigo-500 text-white text-sm font-semibold rounded hover:bg-indigo-950 transition-all duration-300;
 }
 
+.btn-category {
+  @apply px-2 py-1 bg-indigo-950 text-white text-sm font-semibold rounded transition-all duration-300;
+}
+
 .btn-logout {
   @apply px-2 py-1 bg-indigo-500 text-white text-sm font-semibold rounded hover:bg-indigo-950 transition-all duration-300;
 }
@@ -130,4 +134,12 @@ h2 {
 
 .table-head {
   @apply h-10 px-2 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px];
+}
+
+.floating-btn {
+  @apply text-white hover:bg-indigo-950 transition-all duration-300 cursor-pointer fixed xl:bottom-8 bottom-20 px-2 py-2 rounded-full bg-indigo-500 right-5 xl:right-[23%];
+}
+
+.text-area{
+  @apply flex h-20 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50
 }

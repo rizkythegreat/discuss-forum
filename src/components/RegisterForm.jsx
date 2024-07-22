@@ -7,11 +7,11 @@ function RegisterForm ({ register }) {
   const [email, onEmailChange] = useInput('')
   const [password, onPasswordChange] = useInput('')
   return (
-    <div className='w-full max-w-sm card'>
-      <div className='card-header'>
+    <section className='w-full max-w-sm card'>
+      <header className='card-header'>
         <h1 className='text-2xl card-title'>Register</h1>
         <h2 className='card-description'>Register to create your account.</h2>
-      </div>
+      </header>
       <main className='grid gap-4 card-content'>
         <div className='grid gap-2'>
           <label htmlFor='name'>Name</label>
@@ -64,7 +64,7 @@ function RegisterForm ({ register }) {
           </Link>
         </div>
       </footer>
-    </div>
+    </section>
   )
 }
 

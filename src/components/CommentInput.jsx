@@ -9,18 +9,25 @@ function CommentInput ({ addComment }) {
     setComment('')
   }
   return (
-    <div className='mt-2'>
-      <div className='w-full xl:w-1/2'>
-        <div className='relative'>
-          <textarea value={comment} onChange={onCommentChange} id='message' name='message' className='message' />
-        </div>
-        <div className='w-full mt-2 mb-2'>
+    <section className='mt-2'>
+      <div className='w-full xl:w-2/3'>
+        <main className='relative'>
+          <textarea
+            placeholder='Tuliskan komentar anda...'
+            value={comment}
+            onChange={onCommentChange}
+            id='message'
+            name='message'
+            className='message'
+          />
+        </main>
+        <footer className='w-full flex justify-end mt-2 mb-2'>
           <button onClick={onCommentSubmit} className='btn-submit'>
             Kirim
           </button>
-        </div>
+        </footer>
       </div>
-    </div>
+    </section>
   )
 }
 

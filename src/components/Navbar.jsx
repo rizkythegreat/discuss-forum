@@ -8,12 +8,12 @@ const Sidebar = ({ authUser, signOut }) => {
   const isDesktop = useMediaQuery('(min-width: 768px)')
   return isDesktop
     ? (
-      <div className='sticky hidden sm:block top-0 h-screen overflow-y-auto bg-gray-100 p-8 xl:w-64'>
-        <div className='flex items-center mb-8'>
+      <section className='sticky hidden sm:block top-0 h-screen overflow-y-auto bg-gray-100 p-8 xl:w-64'>
+        <header className='flex items-center mb-8'>
           <img src={authUser.avatar} alt='avatar' className='avatar' />
           <h1>Halo {authUser.name} !</h1>
-        </div>
-        <div className='flex flex-col justify-between h-[80vh]'>
+        </header>
+        <main className='flex flex-col justify-between h-[80vh]'>
           <ul className='space-y-5'>
             <li>
               <NavLink
@@ -41,11 +41,11 @@ const Sidebar = ({ authUser, signOut }) => {
               </button>
             </li>
           </ul>
-        </div>
-      </div>
+        </main>
+      </section>
       )
     : (
-      <div className='fixed inset-x-0 z-10 bottom-0 bg-gray-100 p-4'>
+      <section className='fixed inset-x-0 z-10 bottom-0 bg-gray-100 p-4'>
         <ul className='flex justify-around text-sm'>
           <li>
             <NavLink
@@ -71,7 +71,7 @@ const Sidebar = ({ authUser, signOut }) => {
             </button>
           </li>
         </ul>
-      </div>
+      </section>
       )
 }
 

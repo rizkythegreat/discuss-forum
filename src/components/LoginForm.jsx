@@ -12,13 +12,13 @@ function LoginForm ({ login }) {
     }
   }
   return (
-    <div className='w-full max-w-sm card'>
-      <div className='card-header'>
+    <section className='w-full max-w-sm card'>
+      <header className='card-header'>
         <h1 className='text-2xl card-title'>Login</h1>
         <h2 className='card-description'>
           Enter your email below to login to your account.
         </h2>
-      </div>
+      </header>
       <main className='grid gap-4 card-content'>
         <div className='grid gap-2'>
           <label htmlFor='email'>Email</label>
@@ -60,7 +60,7 @@ function LoginForm ({ login }) {
           </Link>
         </div>
       </footer>
-    </div>
+    </section>
   )
 }
 

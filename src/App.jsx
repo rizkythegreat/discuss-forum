@@ -11,6 +11,7 @@ import Sidebar from './components/Navbar'
 import { asyncUnsetAuthUser } from './states/authUser/action'
 import Loading from './components/Loading'
 import LeaderboardPage from './pages/LeaderboardPage'
+import AddThreadPage from './pages/AddThreadPage'
 
 function App () {
   const isPreload = useSelector((state) => state.isPreload)
@@ -47,6 +48,7 @@ function App () {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/thread/:threadId' element={<DetailPage />} />
+          <Route path='/new' element={<AddThreadPage />} />
           <Route path='/leaderboards' element={<LeaderboardPage />} />
         </Routes>
       </div>

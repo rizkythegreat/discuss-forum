@@ -4,9 +4,9 @@ import { userShape } from './ThreadItem'
 export default function Leaderboard ({ leaderboards }) {
   return (
     <section className='card mb-12 sm:mb-0'>
-      <div className='card-header'>
+      <header className='card-header'>
         <div className='card-title text-lg sm:text-xl'>10 Pengguna Teratas</div>
-      </div>
+      </header>
       <main className='card-content'>
         <table className='table'>
           <thead className='table-header'>

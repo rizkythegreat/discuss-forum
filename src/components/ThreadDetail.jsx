@@ -12,6 +12,7 @@ function ThreadDetail ({
   body,
   owner,
   createdAt,
+  category,
   upVotesBy,
   downVotesBy,
   upVoteThreadDetail,
@@ -20,7 +21,7 @@ function ThreadDetail ({
 }) {
   return (
     <>
-      <section className='xl:w-1/2'>
+      <section className='xl:w-2/3'>
         <Link
           className='inline-flex items-center text-indigo-500 group hover:text-indigo-900'
           to='/'
@@ -51,9 +52,12 @@ function ThreadDetail ({
               </div>
             </div>
           </header>
-          <main className='mt-4 card-content'>
+          <main className='mt-2 card-content'>
             <h2 className='mb-4 sm:text-2xl'>{title}</h2>
             <span className='mb-4 text-[14px] sm:text-base'>{parse(body)}</span>
+            <section className='text-lg flex mt-5 text-gray-500'>
+              <p className='px-2 py-1 btn-category'>#{category}</p>
+            </section>
             <div className='flex pb-4 pt-4 items-center gap-2'>
               <VoteButton
                 upVote={upVoteThreadDetail}
@@ -76,6 +80,7 @@ ThreadDetail.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
   owner: PropTypes.shape(userShape).isRequired,
   createdAt: PropTypes.string.isRequired,
   authUser: PropTypes.string.isRequired,

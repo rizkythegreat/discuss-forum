@@ -1,12 +1,7 @@
 import PropTypes from 'prop-types'
 import ThreadItem, { threadItemShape } from './ThreadItem'
 
-function ThreadList ({
-  threads,
-  upVote,
-  downVote,
-  neturalizeVote
-}) {
+function ThreadList ({ threads, upVote, downVote, neturalizeVote }) {
   return (
     <>
       {threads.map((thread) => (
