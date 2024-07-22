@@ -29,21 +29,43 @@ function VoteButton ({
   }
 
   return (
-    <div className='flex pb-2 border rounded-full p-2 pt-2 items-center gap-2'>
+    <div className='flex border rounded-full p-2 pt-2 items-center gap-2'>
       {isUpVoted
         ? (
-          <ThumbsUp className='cursor-pointer' onClick={onNeutralizeVoteClick} size={20} fill='#6366F1' strokeWidth={0} />
+          <ThumbsUp
+            className='cursor-pointer'
+            onClick={onNeutralizeVoteClick}
+            size={18}
+            fill='#6366F1'
+            strokeWidth={0}
+          />
           )
         : (
-          <ThumbsUp className='cursor-pointer' onClick={onUpVoteClick} size={20} strokeWidth={1} />
+          <ThumbsUp
+            className='cursor-pointer'
+            onClick={onUpVoteClick}
+            size={18}
+            strokeWidth={1}
+          />
           )}
       <span className='cursor-default'>{upVotesBy.length}</span>
       {isDownVoted
         ? (
-          <ThumbsDown className='cursor-pointer' onClick={onNeutralizeVoteClick} size={20} fill='#6366F1' strokeWidth={0} />
+          <ThumbsDown
+            className='cursor-pointer'
+            onClick={onNeutralizeVoteClick}
+            size={18}
+            fill='#6366F1'
+            strokeWidth={0}
+          />
           )
         : (
-          <ThumbsDown className='cursor-pointer' onClick={onDownVoteClick} size={20} strokeWidth={1} />
+          <ThumbsDown
+            className='cursor-pointer'
+            onClick={onDownVoteClick}
+            size={18}
+            strokeWidth={1}
+          />
           )}
       <span className='cursor-default'>{downVotesBy.length}</span>
     </div>

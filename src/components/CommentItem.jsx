@@ -18,34 +18,31 @@ function CommentItem ({
 }) {
   return (
     <div className='xl:w-1/2'>
-      <div className='mt-8 p-4 border rounded-md shadow-md'>
-        <div className='flex items-center text-gray-600 mb-3'>
-          <img
-            src={owner.avatar}
-            alt='avatar'
-            className='avatar'
-          />
-          <div className='flex flex-col items-start'>
-            <h1 className='font-semibold'>{owner.name}</h1>
-            <p>{postedAt(createdAt)}</p>
+      <div className='card mt-8 border rounded-md shadow-md'>
+        <header className='card-header'>
+          <div className='flex items-center text-gray-600 mb-3'>
+            <img src={owner.avatar} alt='avatar' className='avatar' />
+            <div className='flex flex-col items-start'>
+              <h1 className='font-semibold'>{owner.name}</h1>
+              <p>{postedAt(createdAt)}</p>
+            </div>
           </div>
-        </div>
-        <p className='mb-4'>
-          {parse(content)}
-        </p>
-        <div className='flex pb-4 pt-4 items-center gap-2'>
-          <VoteButton
-            id={id}
-            authUser={authUser}
-            upVote={upVote}
-            downVote={downVote}
-            neturalizeVote={neturalizeVote}
-            upVotesBy={upVotesBy}
-            downVotesBy={downVotesBy}
-          />
-        </div>
+        </header>
+        <main className='card-content'>
+          <p className='mb-4'>{parse(content)}</p>
+          <div className='flex pb-4 pt-4 items-center gap-2'>
+            <VoteButton
+              id={id}
+              authUser={authUser}
+              upVote={upVote}
+              downVote={downVote}
+              neturalizeVote={neturalizeVote}
+              upVotesBy={upVotesBy}
+              downVotesBy={downVotesBy}
+            />
+          </div>
+        </main>
       </div>
-
     </div>
   )
 }

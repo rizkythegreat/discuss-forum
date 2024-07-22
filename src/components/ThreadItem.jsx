@@ -26,42 +26,40 @@ function ThreadItem ({
     navigate(`/thread/${id}`)
   }
   return (
-    <div className='xl:w-1/2'>
-      <div onClick={onThreadClick} className='mt-8 cursor-pointer  border shadow-md p-4 rounded-md'>
-        <div className='flex items-center text-gray-600 mb-3'>
-          <img
-            src={threadOwner.avatar}
-            alt='avatar'
-            className='avatar'
-          />
-          <div className='flex flex-col items-start'>
-            <h1 className='font-semibold'>{threadOwner.name}</h1>
-            <p>{postedAt(createdAt)}</p>
+    <section className='xl:w-1/2'>
+      <div
+        onClick={onThreadClick}
+        className='card mt-8 cursor-pointer  border shadow-md rounded-md'
+      >
+        <header className='card-header'>
+          <div className='flex items-center text-gray-600 sm:mb-3'>
+            <img src={threadOwner.avatar} alt='avatar' className='avatar' />
+            <div className='flex flex-col items-start'>
+              <h1 className='font-semibold'>{threadOwner.name}</h1>
+              <p>{postedAt(createdAt)}</p>
+            </div>
           </div>
-        </div>
-        <h2>
-          {title}
-        </h2>
-        <main className='mb-4'>
-          {parse(truncatedText)}
+        </header>
+        <main className='card-content'>
+          <h2>{title}</h2>
+          <section className='mb-4'>{parse(truncatedText)}</section>
+          <div className='flex z-10 pt-4 pb-1 items-center gap-2'>
+            <VoteButton
+              id={id}
+              authUser={authUser}
+              upVote={upVote}
+              downVote={downVote}
+              neturalizeVote={neturalizeVote}
+              upVotesBy={upVotesBy}
+              downVotesBy={downVotesBy}
+            />
+          </div>
+          <div className='mt-2 border-b-2'>
+            <p>Komentar ({totalComments})</p>
+          </div>
         </main>
-        <div className='flex z-10 pt-4 pb-1 items-center gap-2'>
-          <VoteButton
-            id={id}
-            authUser={authUser}
-            upVote={upVote}
-            downVote={downVote}
-            neturalizeVote={neturalizeVote}
-            upVotesBy={upVotesBy}
-            downVotesBy={downVotesBy}
-          />
-        </div>
-        <div className='mt-2 border-b-2'>
-          <p>Komentar ({totalComments})</p>
-        </div>
       </div>
-
-    </div>
+    </section>
   )
 }
 

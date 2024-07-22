@@ -13,36 +13,40 @@ const Sidebar = ({ authUser, signOut }) => {
           <img src={authUser.avatar} alt='avatar' className='avatar' />
           <h1>Halo {authUser.name} !</h1>
         </div>
-        <ul>
-          <li className='mb-2'>
-            <NavLink
-              to='/'
-              className={({ isActive }) =>
-                isActive ? 'text-indigo-500' : 'hover:text-indigo-500'}
-            >
-              Threads
-            </NavLink>
-          </li>
-          <li className='mb-2'>
-            <NavLink
-              to='/leaderboards'
-              className={({ isActive }) =>
-                isActive ? 'text-indigo-500' : 'hover:text-indigo-500'}
-            >
-              Leaderboards
-            </NavLink>
-          </li>
-          <li className='mb-2'>
-            <button onClick={signOut} className='btn-logout'>
-              Logout
-            </button>
-          </li>
-        </ul>
+        <div className='flex flex-col justify-between h-[80vh]'>
+          <ul className='space-y-5'>
+            <li>
+              <NavLink
+                to='/'
+                className={({ isActive }) =>
+                  isActive ? 'text-indigo-500' : 'hover:text-indigo-500'}
+              >
+                Threads
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to='/leaderboards'
+                className={({ isActive }) =>
+                  isActive ? 'text-indigo-500' : 'hover:text-indigo-500'}
+              >
+                Leaderboards
+              </NavLink>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <button onClick={signOut} className='btn-logout'>
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
       )
     : (
       <div className='fixed inset-x-0 z-10 bottom-0 bg-gray-100 p-4'>
-        <ul className='flex justify-around'>
+        <ul className='flex justify-around text-sm'>
           <li>
             <NavLink
               to='/'

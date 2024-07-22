@@ -142,16 +142,16 @@ const api = (() => {
 
   async function createComment ({ content, threadId }) {
     const response = await _fetchWithAuth(
-            `${BASE_URL}/threads/${threadId}/comments`,
-            {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({
-                content
-              })
-            }
+      `${BASE_URL}/threads/${threadId}/comments`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          content
+        })
+      }
     )
     const responseJson = await response.json()
 
@@ -184,13 +184,13 @@ const api = (() => {
 
   async function downVoteThread (id) {
     const response = await _fetchWithAuth(
-            `${BASE_URL}/threads/${id}/down-vote`,
-            {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              }
-            }
+      `${BASE_URL}/threads/${id}/down-vote`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
     )
 
     const responseJson = await response.json()
@@ -201,13 +201,13 @@ const api = (() => {
   }
   async function neutralizeThreadVote (id) {
     const response = await _fetchWithAuth(
-            `${BASE_URL}/threads/${id}/neutral-vote`,
-            {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              }
-            }
+      `${BASE_URL}/threads/${id}/neutral-vote`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
     )
 
     const responseJson = await response.json()
@@ -219,13 +219,13 @@ const api = (() => {
 
   async function upVoteComment (threadId, commentId) {
     const response = await _fetchWithAuth(
-            `${BASE_URL}/threads/${threadId}/comments/${commentId}/up-vote`,
-            {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              }
-            }
+      `${BASE_URL}/threads/${threadId}/comments/${commentId}/up-vote`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
     )
     const responseJson = await response.json()
     const { status, message } = responseJson
@@ -239,13 +239,13 @@ const api = (() => {
   }
   async function downVoteComment (threadId, commentId) {
     const response = await _fetchWithAuth(
-            `${BASE_URL}/threads/${threadId}/comments/${commentId}/down-vote`,
-            {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              }
-            }
+      `${BASE_URL}/threads/${threadId}/comments/${commentId}/down-vote`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
     )
     const responseJson = await response.json()
     const { status, message } = responseJson
@@ -259,13 +259,13 @@ const api = (() => {
   }
   async function neutralVoteComment (threadId, commentId) {
     const response = await _fetchWithAuth(
-            `${BASE_URL}/threads/${threadId}/comments/${commentId}/neutral-vote`,
-            {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              }
-            }
+      `${BASE_URL}/threads/${threadId}/comments/${commentId}/neutral-vote`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
     )
     const responseJson = await response.json()
     const { status, message } = responseJson
@@ -278,11 +278,25 @@ const api = (() => {
     return vote
   }
 
+  async function getLeaderBoards () {
+    const response = await fetch(`${BASE_URL}/leaderboards`)
+    const responseJson = await response.json()
+    const { status, message } = responseJson
+    if (status !== 'success') {
+      throw new Error(message)
+    }
+    const {
+      data: { leaderboards }
+    } = responseJson
+    return leaderboards
+  }
+
   return {
     login,
     register,
     getAllThreads,
     getThreadDetail,
+    getLeaderBoards,
     createComment,
     upVoteThread,
     downVoteThread,
