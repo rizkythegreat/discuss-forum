@@ -1,10 +1,9 @@
-import React from 'react'
-import CustomLink from './CustomLink'
 import postedAt from '../utils'
 import parse from 'html-react-parser'
 import VoteButton from './VoteButton'
 import PropTypes from 'prop-types'
 import { userShape } from './ThreadItem'
+import { Link } from 'react-router-dom'
 
 function ThreadDetail ({
   id,
@@ -22,7 +21,15 @@ function ThreadDetail ({
   return (
     <>
       <section className='xl:w-1/2'>
-        <CustomLink variant='withArrow' text='Kembali' to='/' />
+        <Link className='inline-flex items-center text-indigo-500 group hover:text-indigo-900' to='/'>
+          <span className='transform transition-transform duration-200 group-hover:-translate-x-1'>
+            <svg className='w-4 h-4 ml-2' viewBox='0 0 24 24' stroke='currentColor' strokeWidth='2' fill='none' strokeLinecap='round' strokeLinejoin='round'>
+              <path d='M19 12H5' />
+              <path d='M12 19l-7-7 7-7' />
+            </svg>
+          </span>
+          Kembali
+        </Link>
         <section className='p-2 rounded-sm shadow-md mt-2 mb-8'>
           <header>
             <div className='flex items-center text-gray-600'>

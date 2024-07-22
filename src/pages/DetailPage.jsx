@@ -21,7 +21,6 @@ function DetailPage () {
 
   const onUpVoteComment = (id) => {
     dispatch(asyncUpVoteComment(id))
-  
   }
   const onDownVoteComment = (id) => {
     dispatch(asyncDownVoteComment(id))
@@ -59,11 +58,12 @@ function DetailPage () {
         <CommentInput addComment={onCommentSubmit} />
         <h1>Komentar ({threadDetail.comments.length})</h1>
         <CommentList
-         authUser={authUser.id}
-         upVoteComment={onUpVoteComment}
-         downVoteComment={onDownVoteComment}
-         neturalizeVoteComment={onNeutralizeVoteComment}
-         comments={threadDetail.comments} />
+          authUser={authUser.id}
+          upVoteComment={onUpVoteComment}
+          downVoteComment={onDownVoteComment}
+          neturalizeVoteComment={onNeutralizeVoteComment}
+          comments={threadDetail.comments}
+        />
       </div>
     </>
   )

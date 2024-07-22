@@ -1,5 +1,5 @@
-import React from 'react'
-import ThreadItem from './ThreadItem'
+import PropTypes from 'prop-types'
+import ThreadItem, { threadItemShape } from './ThreadItem'
 
 function ThreadList ({
   threads,
@@ -20,6 +20,13 @@ function ThreadList ({
       ))}
     </>
   )
+}
+
+ThreadList.propTypes = {
+  threads: PropTypes.arrayOf(PropTypes.shape(threadItemShape)).isRequired,
+  upVote: PropTypes.func.isRequired,
+  downVote: PropTypes.func.isRequired,
+  neturalizeVote: PropTypes.func.isRequired
 }
 
 export default ThreadList

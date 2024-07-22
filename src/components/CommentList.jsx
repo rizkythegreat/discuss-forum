@@ -6,7 +6,7 @@ function CommentList ({
   authUser,
   upVoteComment,
   downVoteComment,
-  neturalizeVoteComment,
+  neturalizeVoteComment
 }) {
   return (
     <>
@@ -29,7 +29,7 @@ CommentList.propTypes = {
   authUser: PropTypes.string.isRequired,
   upVoteComment: PropTypes.func.isRequired,
   downVoteComment: PropTypes.func.isRequired,
-  neturalizeVoteComment: PropTypes.func.isRequired,
-};
+  neturalizeVoteComment: PropTypes.func.isRequired
+}
 
 export default CommentList

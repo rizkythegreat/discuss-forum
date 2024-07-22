@@ -56,16 +56,16 @@ const commentShape = {
   createdAt: PropTypes.string.isRequired,
   owner: PropTypes.shape(userShape).isRequired,
   upVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
-  downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
+  downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired
+}
 
 CommentItem.propTypes = {
   ...commentShape,
   upVote: PropTypes.func.isRequired,
   downVote: PropTypes.func.isRequired,
   neturalizeVote: PropTypes.func.isRequired,
-  authUser: PropTypes.string.isRequired,
-};
-export { commentShape };
+  authUser: PropTypes.string.isRequired
+}
+export { commentShape }
 
 export default CommentItem

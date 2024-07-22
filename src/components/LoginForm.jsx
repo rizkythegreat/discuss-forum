@@ -1,5 +1,5 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import useInput from '../hooks/useInput'
 
 function LoginForm ({ login }) {
@@ -34,6 +34,10 @@ function LoginForm ({ login }) {
       </footer>
     </div>
   )
+}
+
+LoginForm.propTypes = {
+  login: PropTypes.func.isRequired
 }
 
 export default LoginForm
