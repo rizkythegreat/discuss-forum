@@ -47,7 +47,7 @@ function HomePage () {
     <>
       <div className='fade-in flex-1 p-4 sm:p-8 mb-16 sm:mb-0'>
         <h2 className='scroll-m-20 mb-6 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0'>
-          Forum Diskusi
+          Forum Diskusi App
         </h2>
         {Array.from(categories).map((category) => {
           if (filter === category) {
