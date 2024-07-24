@@ -1,10 +1,13 @@
 import { useEffect } from 'react'
-import ThreadDetail from '../components/ThreadDetail'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncCreateComment, asyncDownVoteComment, asyncDownVoteThreadDetail, asyncNeutralizeVoteComment, asyncNeutralizeVoteThreadDetail, asyncReceiveThreadDetail, asyncUpVoteComment, asyncUpVoteThreadDetail } from '../states/threadDetail/action'
-import CommentList from '../components/CommentList'
-import CommentInput from '../components/CommentInput'
+import loadable from '@loadable/component'
+
+const ThreadDetail = loadable(() => import('../components/ThreadDetail'))
+const CommentList = loadable(() => import('../components/CommentList'))
+const CommentInput = loadable(() => import('../components/CommentInput'))
+const Loading = loadable(() => import('../components/Loading'))
 
 function DetailPage () {
   const { threadId } = useParams()
@@ -43,11 +46,11 @@ function DetailPage () {
   }, [threadId, dispatch])
 
   if (!threadDetail) {
-    return <div>Loading...</div>
+    return <Loading />
   }
   return (
     <>
-      <div className='flex-1 p-6 sm:mb-0 mb-16'>
+      <div className='fade-in flex-1 p-6 sm:mb-0 mb-16'>
         <ThreadDetail
           {...threadDetail}
           authUser={authUser.id}

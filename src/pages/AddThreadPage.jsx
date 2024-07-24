@@ -1,7 +1,9 @@
 import { useDispatch } from 'react-redux'
-import ThreadInput from '../components/ThreadInput'
 import { asyncCreateThread } from '../states/threads/action'
 import { useNavigate } from 'react-router-dom'
+import loadable from '@loadable/component'
+
+const ThreadInput = loadable(() => import('../components/ThreadInput'))
 
 function AddThreadPage () {
   const dispatch = useDispatch()
@@ -13,7 +15,7 @@ function AddThreadPage () {
   }
   return (
     <>
-      <div className='flex-1 p-4 sm:p-8 mb-16 sm:mb-0'>
+      <div className='fade-in flex-1 p-4 sm:p-8 mb-16 sm:mb-0'>
         <ThreadInput addThread={onAddThread} />
       </div>
     </>
