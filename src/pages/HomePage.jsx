@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import ThreadList from '../components/ThreadList'
 import { useDispatch, useSelector } from 'react-redux'
 import asyncPopulateUsersAndThreads from '../states/shared/action'
 import {
@@ -9,6 +8,9 @@ import {
 } from '../states/threads/action'
 import { Plus } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import loadable from '@loadable/component'
+
+const ThreadList = loadable(() => import('../components/ThreadList'))
 
 function HomePage () {
   const [filter, setFilter] = useState('')
@@ -43,7 +45,7 @@ function HomePage () {
 
   return (
     <>
-      <div className='flex-1 p-4 sm:p-8 mb-16 sm:mb-0'>
+      <div className='fade-in flex-1 p-4 sm:p-8 mb-16 sm:mb-0'>
         <h2 className='scroll-m-20 mb-6 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0'>
           Forum Diskusi
         </h2>
