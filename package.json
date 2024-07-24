@@ -7,12 +7,17 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest",
+    "e2e": "cypress run",
+    "ci:test": "vitest --no-watch && start-server-and-test dev http://localhost:5173/ e2e"
   },
   "dependencies": {
+    "@loadable/component": "^5.16.3",
     "@reduxjs/toolkit": "^2.2.6",
     "html-react-parser": "^3.0.6",
     "lucide-react": "^0.412.0",
+    "p-min-delay": "^4.0.2",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -23,18 +28,27 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^29.4.0",
     "@types/react": "^18.3.3",
+    "start-server-and-test": "^2.0.4",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.19",
     "axios": "^1.7.2",
+    "cypress": "^13.13.1",
     "eslint": "^8.57.0",
+    "eslint-plugin-cypress": "^3.3.0",
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
+    "jsdom": "^24.1.1",
     "postcss": "^8.4.39",
     "standard": "*",
     "tailwindcss": "^3.4.6",
-    "vite": "^5.3.4"
+    "vite": "^5.3.4",
+    "vitest": "^0.31.1"
   }
 }
