@@ -28,6 +28,7 @@ function LoginForm ({ login }) {
             className='input'
             id='email'
             type='email'
+            aria-label='Email'
             placeholder='m@example.com'
             required
           />
@@ -40,6 +41,7 @@ function LoginForm ({ login }) {
             onChange={onPasswordChange}
             placeholder='enter your password'
             className='input'
+            aria-label='password-login'
             id='password'
             type='password'
             required
@@ -50,6 +52,7 @@ function LoginForm ({ login }) {
         <button
           onClick={() => login({ email, password })}
           className='btn-login'
+          aria-label='Login'
         >
           Login
         </button>
