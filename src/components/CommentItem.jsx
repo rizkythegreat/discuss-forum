@@ -1,9 +1,10 @@
 import postedAt from '../utils'
 import parse from 'html-react-parser'
-import VoteButton from './VoteButton'
 import PropTypes from 'prop-types'
 import { userShape } from './ThreadItem'
+import loadable from '@loadable/component'
 
+const VoteButton = loadable(() => import('./VoteButton'))
 function CommentItem ({
   id,
   content,
