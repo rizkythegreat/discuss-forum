@@ -10,7 +10,6 @@ import { describe, it, expect, vi } from 'vitest'
 import { hideLoading, showLoading } from 'react-redux-loading-bar'
 import api from '../../utils/api'
 import {
-  ActionType,
   receiveLeaderboardsActionCreator,
   asyncPopulateLeaderboards
 } from './action'
