@@ -9,7 +9,7 @@ import { describe, it, expect, vi } from 'vitest'
 import { hideLoading, showLoading } from 'react-redux-loading-bar'
 import api from '../../utils/api'
 import { setAuthUserActionCreator } from '../authUser/action'
-import { ActionType, setIsPreloadActionCreator, asyncPreloadProcess } from './action'
+import { setIsPreloadActionCreator, asyncPreloadProcess } from './action'
 
 describe('asyncPreloadProcess thunk', () => {
   it('should dispatch action correctly when data fetching success', async () => {
