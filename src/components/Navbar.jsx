@@ -1,7 +1,7 @@
 // Sidebar.jsx
 import PropTypes from 'prop-types'
 import { useMediaQuery } from '../utils/use-media-query'
-import { userShape } from './ThreadItem'
+import { userShape } from '../shape/shape'
 import { NavLink } from 'react-router-dom'
 
 const Sidebar = ({ authUser, signOut }) => {

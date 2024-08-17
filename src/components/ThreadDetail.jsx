@@ -2,7 +2,7 @@ import postedAt from '../utils'
 import parse from 'html-react-parser'
 import VoteButton from './VoteButton'
 import PropTypes from 'prop-types'
-import { userShape } from './ThreadItem'
+import { userShape } from '../shape/shape'
 import { Link } from 'react-router-dom'
 
 function ThreadDetail ({
