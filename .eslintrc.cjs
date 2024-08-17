@@ -3,13 +3,15 @@ module.exports = {
   env: {
     browser: true,
     es2020: true,
-    cypress: true
+    'cypress/globals': true
   },
   extends: [
+    'standard',
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
-    'plugin:react-hooks/recommended'
+    'plugin:react-hooks/recommended',
+    'plugin:cypress/recommended'
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },

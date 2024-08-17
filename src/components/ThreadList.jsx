@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
-import ThreadItem, { threadItemShape } from './ThreadItem'
+import ThreadItem from './ThreadItem'
+import { threadItemShape } from '../shape/shape'
 
 function ThreadList ({ threads, upVote, downVote, neturalizeVote }) {
   return (

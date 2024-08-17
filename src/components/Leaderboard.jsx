@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { userShape } from './ThreadItem'
+import { userShape } from '../shape/shape'
 
 export default function Leaderboard ({ leaderboards }) {
   return (
