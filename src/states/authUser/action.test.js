@@ -4,7 +4,7 @@
  * - asyncSetAuthUser thunk
  *   - should dispatch action correctly when login success
  *   - should dispatch action and call alert correctly when login failed
- * 
+ *
  * - asyncUnsetAuthUser thunk
  *   - should dispatch action correctly
  */
